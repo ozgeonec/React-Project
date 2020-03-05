@@ -5,6 +5,7 @@ import './Clock.js';
 import Clock from './Clock.js';
 import MyComponent from './mycomponent.js';
 import ColoredBlock from './ColoredBlock.js';
+import Product from './Product.js';
 //let time =new Date().toLocaleString();
 
 var PRODUCTS = {
@@ -40,6 +41,10 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <section>
+          <Product ></Product>
+        </section>
+        
       </div>
     );
   }

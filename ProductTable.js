@@ -1,33 +1,32 @@
-import react from 'react';
+import React from 'react';
 import ProductRow from './ProductRow.js';
-import SortableColumnHeader from './SortableColumnHeader.js';
+import ProductTableHeader from './ProductTableHeader.js';
 
-class ProductTable extends React.Component{
-    render(){
-        let productsAsArray = Object.keys(this.props.products).map((pid)=>this.props.produts{pid});
-        let rows = this.props.products.map((product)=>{
-            return (
-                <ProductRow product={product} key={product.id}/>
-            );
-        });
+class ProductTable extends React.Component {
+  render() {
+    let productsAsArray = Object.keys(this.props.products).map((pid) => this.props.products[pid]);
+    let rows = [];
 
-        return(
-            <table>
-                <thead>
-                <tr>
-                    <SortableColumnHeader column= "name"/>
-                    <SortableColumnHeader column="price"/>
+    productsAsArray.forEach((product) => {
+      rows.push(
+        <ProductRow product={product} key={product.id} ></ProductRow>
+      );
+    });
 
-                </tr>
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
-
-        );
-    }
-
-} 
+    return (
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <ProductTableHeader column="name" ></ProductTableHeader>
+              <ProductTableHeader column="price" ></ProductTableHeader>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>
+      </div>
+    );
+  }
+}
 
 export default ProductTable;
